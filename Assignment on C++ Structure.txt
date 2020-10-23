@@ -1,0 +1,279 @@
+1. Give the output of the following program. Assuming all the desired header files are already included, which are required to run the code.
+
+ANSWER:
+
+#include<iostream>
+
+using namespace std;
+struct Pixel
+{
+            int C, R;
+};
+
+void Display(Pixel P)
+{
+            cout << "Col "<< P.C << " Row " << P.R << endl;
+}
+
+int main()
+{
+            Pixel X = {40,50}, Y, Z;
+            Z = X;
+            X.C += 10;
+            Y = Z;
+            Y.C += 10;
+            Y.R += 20;
+            Z.C -= 15;
+            Display(X);
+            Display(Y);
+            Display(Z);
+            return 0;
+}
+
+
+2. Find the output of the following program. Assuming all the desired header files are already included, which are required to run the code.
+
+
+ANSWER:
+
+#include<iostream>
+using namespace std;
+struct Play
+{
+            int score, bonus;
+};
+
+void calculate(Play &P, int N = 10)
+{
+            P.score++;
+            P.bonus += N;
+}
+
+int main()
+{
+            Play PL = {10, 15};
+            calculate(PL, 5);
+            cout << PL.score << ":" << PL.bonus << endl;
+            calculate(PL);
+            cout << PL.score << ":" << PL.bonus << endl;
+            calculate(PL, 15);
+            cout << PL.score << ":" << PL.bonus << endl;
+            return 0;
+}
+
+
+3. Find the output of the following program. Assuming all the desired header files are already included, which are required to run the code.
+
+
+ANSWER:
+
+#include<iostream>
+using namespace std;
+
+struct MyBox
+{
+            int length, breadth, height;
+};
+
+void dimension (MyBox M)
+{
+            cout << M.length << "x" << M.breadth << "x";
+            cout << M.height << endl;
+}
+
+int main ()
+{
+            MyBox B1 = {10, 15, 5}, B2, B3;
+            ++B1.height;
+            dimension(B1);
+            B3 = B1;
+            ++B3.length;
+            B3.breadth++;
+            dimension(B3);
+            B2 = B3;
+            B2.height += 5;
+            B2.length--;
+            dimension(B2);
+           return 0;
+}
+
+4. Rewrite the following program after removing the syntactical errors (if any). Underline each correction.
+
+ANSWER:
+
+#include<iostream>
+using namespace std;
+    struct  Pixels{
+
+       int color, style;
+};
+void showPoint(Pixels P)
+{
+            cout<<P.color<<P.style<<endl;
+}
+int main()
+{
+            Pixels Point1 ={5,3};
+            showPoint(Point1);
+            Pixels Point2 = Point1;
+            Point1.color += 2;
+            showPoint(Point2);
+            return 0;
+}
+
+
+5. Declare a structure to represent a complex number (a number having a real part and imaginary part). Write C++ functions to add, subtract, multiply and divide two complex numbers.
+
+
+ANSWER:
+
+
+// Declare a structure to represent a complex number (a number having a real part and imaginary part). 
+// Write C++ functions to add, subtract, multiply and divide two complex numbers
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+struct Complex{
+    private:
+    int real;
+    int imag;
+    public:
+    void Accept();
+    void addComplex();
+    void subComplex();
+    void mulComplex();
+    void divComplex();
+}C1,C2;
+void Complex::Accept(){
+    cout<<"ENter first complex Number:"<<endl;
+    cin>>C1.real>>C1.imag;
+    cout<<"Enter second complex Number:"<<endl;
+    cin>>C1.real>>C1.imag;
+}
+void Complex::addComplex(){
+    int a,b;
+    a=(C1.real)+(C1.real);
+    b=(C1.imag)+(C1.imag);
+    cout<<"The Addition of two Commplex Number:"<<a<<"+"<<b<<"i"<<endl;
+}
+void Complex::subComplex(){
+    int a,b;
+    a=(C1.real)-(C1.real);
+    b=(C1.imag)-(C1.imag);
+    cout<<"The Subtraction of two Commplex Number:"<<a<<"+"<<b<<"i"<<endl;
+}
+void Complex::mulComplex(){
+    int a,b;
+    a=(C1.real)*(C1.real);
+    b=(C1.imag)*(C1.imag);
+    cout<<"The multiplication of two Commplex Number:"<<a<<"+"<<b<<"i"<<endl;
+}
+void Complex::divComplex(){
+    int a,b;
+    a=(C1.real)/(C1.real);
+    b=(C1.imag)/(C1.imag);
+    cout<<"The division of two Commplex Number:"<<a<<"+"<<b<<"i"<<endl;
+}
+
+int main(){
+    Complex C3;
+    C3.addComplex();
+    C3.subComplex();
+    C3.mulComplex();
+    C3.divComplex();
+    return 0;
+    
+}
+
+6. An array stores details of 25 students (rollno, name, marks in three subject). Write a program to create such an array and print out a list of students who have failed in more than one subject.
+
+ANSWER:
+
+
+// An array stores details of 25 students (rollno, name, marks in three subject). 
+// Write a program to create such an array and print out a list of students who have failed in more than one subject.
+
+#include<iostream>
+#include<string>
+using namespace std;
+struct Student{
+    int rollNo;
+    string stdName;
+    float Sci_marks,Tamil_marks,English_marks;
+}S[25];
+int main(){
+
+        Student S[25];
+        cout<<"Enter students's Details:"<<endl;
+        for(int i=0;i<25;i++){
+            cout<<"For roll number"<<endl;
+            cin>>S[i].rollNo;
+            cout<<"Enter name:";
+            cin>>S[i].stdName;
+            cout<<"Enter Marks:";
+            cin>>S[i].Sci_marks>>S[i].Tamil_marks>>S[i].English_marks;
+
+        }
+        cout<<"Displaying Information:"<<endl;
+        for(int i=0;i<25;i++){
+            cout<<"Roll number:"<<S[i].rollNo<<endl;
+            cout<<"Name:"<<S[i].stdName<<endl;
+            cout<<"Marks:"<<S[i].Sci_marks<<"\t"<<S[i].Tamil_marks<<"\t"<<S[i].English_marks<<"\t"<<endl;
+            if((S[i].Sci_marks<35)&&(S[i].Tamil_marks<35)&&(S[i].English_marks<35)&&(S[i].Sci_marks<35)&&
+                (S[i].Tamil_marks<35)&&(S[i].English_marks<35)){
+                cout<<S[i].rollNo<<"\t"<<S[i].stdName<<"\t"<<"is failed in more than one subject:";}
+        }
+    } 
+
+
+      
+7. What should be output of below program? program is compiled on g++ compiler.
+#include<iostream>
+using namespace std;
+struct student{	
+ char a;  char b;  int c;
+};
+int main()
+{
+ cout<<sizeof(student);	
+ return 0;
+}
+
+
+ANSWER:
+
+
+C.[8]
+
+
+8. Which of the following statements assigns a value to the hourlyWage member of employee[2}?
+Options:
+(A) employee[2]->hourlyWage = 50.00;
+(B) employee2.hourlyWage = 7.50;
+(C) hourlyWage[2].employee = 29.75;
+(D) employee[2].hourlyWage = 75.00;
+
+Give the answer:[D]
+
+
+9. Which of the following statements outputs the value of the gpa member of element 1 of the student array?
+Options:
+(A) cout<<student1.gpa;
+(B) cout<<firstStudent.gpa;
+(C) cout<<student[1].gpa;
+(D) cout<<student1 ->gpa;
+
+
+Give the answer:[C]
+
+
+10. Which of the following statements outputs the value of the gpa member of element 1 of the student array?
+Options: 
+(A) cout<<student1.gpa;
+(B) cout<<firstStudent.gpa;
+(C) cout<<student[1].gpa;
+(D) cout<<student1 ->gpa;
+
+
+Give the answer:[C]
